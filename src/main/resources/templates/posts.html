@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/master.html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<div layout:fragment="context">
+    <div class="container">
+        <div class="alert alert-success" role="alert" th:if="${success}">
+             Successfully Updated !
+        </div>
+    </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>TAG</th>
+                <th>BODY</th>
+                <th>LASTUPDATE</th>
+                <th>AUTHOR</th>
+                <th>Update</th>
+                <th>Delete</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr  th:each="pos :${allposts}">
+                <td th:text="${pos.tag}"></td>
+                <td th:text="${pos.body}"></td>
+                <td th:text="${pos.lastUpdate}"></td>
+                <td th:text="${pos.author.getName()}"></td>
+                <td><a class="btn btn-primary"
+                       href="#" th:href="@{'/posts/update/'+${pos.id}}">update</a></td>
+                <td><a class="btn btn-danger" href="#" th:href="@{'/post/delete/'+${pos.id}}">delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+</body>
+</html>

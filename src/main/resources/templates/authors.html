@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/master.html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<div layout:fragment="context">
+
+    <div class="container">
+
+        <div class="alert alert-success" role="alert" th:if="${success}">
+            New Author is added .
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>DOB</th>
+                <th>Interest</th>
+                <th>Gender</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  th:each="au :${authors}">
+                <td th:text="${au.name}"></td>
+                <td th:text="${au.dateOfBirth}"></td>
+                <td th:text="${au.interest}"></td>
+                <td th:text="${au.gender}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>
+
+</body>
+</html>
