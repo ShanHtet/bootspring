@@ -20,8 +20,10 @@ public class WebMvcSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers("/authors").permitAll()
                 .antMatchers("/post").hasRole("ADMIN")
                 .antMatchers("/author").hasAnyRole("ADMIN")
-        .and()
-        .httpBasic()
+                .and()
+                .formLogin()
+                .and()
+                .httpBasic()
 
 
         ;
